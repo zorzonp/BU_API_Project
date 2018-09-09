@@ -13,7 +13,7 @@
 
 #Import the required libraries
 import Twitter_API_Helper
-import FFMPEG_API_Helper.py
+import FFMPEG_API_Helper
 
 
 ####################################################################
