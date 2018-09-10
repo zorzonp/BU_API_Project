@@ -5,12 +5,12 @@
 ##  Class:          EC601 - A1
 ##  File_Name:		Twitter_API_Helper.py
 ##
-##	Description:	This is a library file contaning functions that 
-##                    utlize the Tweepy API.
+##	Description:	This is a library file containing functions that 
+##                    utilize the Tweepy API.
 ##
 ####################################################################
 
-#import required liraries
+#import required libraries
 import tweepy
 
 ####################################################################
@@ -44,7 +44,7 @@ def authenticate():
 ##   This attempts to find a Twitter profile. It prompts the user
 ##    to enter a Twitter handle, if the handle is valid, and 
 ##    if it can find the user it returns the Twitter handle.
-##    If it cannot find the user or the hndle is not in the correct 
+##    If it cannot find the user or the handle is not in the correct 
 ##    format it will keep prompting the user until they exit. 
 ## 
 ## Inputs
@@ -86,8 +86,8 @@ def getTweets(api, userName):
 ## Function filterTweetsForImages
 ##
 ## Description
-##   This procedure examins all the tweets provided and filters
-##    out any non image tweets. 
+##   This procedure examines all the tweets provided and filters
+##    out any non-image tweets. 
 ## 
 ## Inputs
 ##   api: An instance of the tweepy API, needed to call the API functions
@@ -111,7 +111,7 @@ def filterTweetsForImages(api, tweets):
 ## 
 ## Inputs
 ##   api: An instance of the tweepy API, needed to call the API functions
-##   imageTweets: An array of tweet objects contaning images
+##   imageTweets: An array of tweet objects containing images
 ##
 ## Outputs
 ##   None

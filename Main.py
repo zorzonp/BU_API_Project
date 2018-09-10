@@ -14,6 +14,7 @@
 #Import the required libraries
 import Twitter_API_Helper
 import FFMPEG_API_Helper
+import Google_API_Helper
 
 
 ####################################################################
@@ -21,7 +22,7 @@ import FFMPEG_API_Helper
 ## Function Main
 ##
 ## Description
-##   This is the main procedure of this test stub. It calles the 
+##   This is the main procedure of this test stub. It calls the 
 ##    library functions that access the different APIs.
 ## 
 ## Inputs
