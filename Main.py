@@ -38,6 +38,9 @@ import Google_API_Helper
 def main():
 	#TODO: Call the library functions 
     print("\n\nStarting API Project")
+
+    twitterClient = Twitter_API_Helper.authenticate()
+
     print("\nEnding API Project\n\n")
 
 
