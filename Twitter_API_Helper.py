@@ -12,6 +12,8 @@
 
 #import required libraries
 import tweepy
+import twitter_globals_secret
+import os
 
 ####################################################################
 ##
@@ -35,6 +37,37 @@ import tweepy
 ##
 ####################################################################
 def authenticate():
+	#this is the consumer key and secret, needed to authenticate with Twitter
+	CONSUMER_KEY = twitter_globals_secret.CONSUMER_KEY
+	CONSUMER_SECRET = twitter_globals_secret.CONSUMER_SECRET
+	ACCESS_TOKEN = twitter_globals_secret.ACCESS_TOKEN
+	ACCESS_TOKEN_SECRET = twitter_globals_secret.ACCESS_TOKEN_SECRET
+	CONSUMER_SECRET2= twitter_globals_secret.CONSUMER_SECRET2
+
+	print ("\n\nChecking on Twitter.com.......")
+
+	#check on twitter.com by pinging it. If it repsonds we know 1) we have an internet connection and 2) Twitter.com is up
+	if os.system("ping -c 1 twitter.com >nul 2>&1"):
+		#if Twitter could not be reached then alert the user
+		print("\n")
+		print("Could not reach Twitter.")
+		print("Please check your internet connection and try again.")
+		print("If the problem percists then Twitter could be down.\n\n")
+		exit(1)
+
+	else:
+		print("Twitter is live!")
+
+		try:
+			auth = tweepy.OAuthHandler(CONSUMER_KEY, ACCESS_TOKEN_SECRET)
+			auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
+			clientApi = tweepy.API(auth)
+			return clientApi
+		
+		except tweepy.TweepError:
+			print ("Unable to authenticate with Twitter.\n Program is terminating.\n\n")
+			exit(1)
 
 ####################################################################
 ##
@@ -59,7 +92,7 @@ def authenticate():
 ##    terminates.
 ##
 ####################################################################
-def findUser(api):
+#def findUser(api):
 
 ###################################################################
 ##
@@ -79,7 +112,8 @@ def findUser(api):
 ##   Error messages are printed to the console
 ##
 ####################################################################
-def getTweets(api, userName):
+#def getTweets(api, userName):
+
 
 ###################################################################
 ##
@@ -100,7 +134,7 @@ def getTweets(api, userName):
 ##   Error messages are printed to the console
 ##
 ####################################################################
-def filterTweetsForImages(api, tweets):
+#def filterTweetsForImages(api, tweets):
 
 ###################################################################
 ##
@@ -120,6 +154,4 @@ def filterTweetsForImages(api, tweets):
 ##   Error messages are printed to the console
 ##
 ####################################################################
-def downloadImages(api, imageTweets):
-
-
+#def downloadImages(api, imageTweets):
