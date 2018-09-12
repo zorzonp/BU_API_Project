@@ -40,6 +40,9 @@ def main():
     print("\n\nStarting API Project")
 
     twitterClient = Twitter_API_Helper.authenticate()
+    user = Twitter_API_Helper.findUser(twitterClient)
+    tweets = Twitter_API_Helper.getTweets(twitterClient, user)
+    imageTweets = Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets)
 
     print("\nEnding API Project\n\n")
 

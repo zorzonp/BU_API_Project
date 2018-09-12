@@ -42,7 +42,6 @@ def authenticate():
 	CONSUMER_SECRET = twitter_globals_secret.CONSUMER_SECRET
 	ACCESS_TOKEN = twitter_globals_secret.ACCESS_TOKEN
 	ACCESS_TOKEN_SECRET = twitter_globals_secret.ACCESS_TOKEN_SECRET
-	CONSUMER_SECRET2= twitter_globals_secret.CONSUMER_SECRET2
 
 	print ("\n\nChecking on Twitter.com.......")
 
@@ -59,15 +58,20 @@ def authenticate():
 		print("Twitter is live!")
 
 		try:
-			auth = tweepy.OAuthHandler(CONSUMER_KEY, ACCESS_TOKEN_SECRET)
+			auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 			auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 			clientApi = tweepy.API(auth)
+
+			#try and use the API to see if it errors
+			clientApi.verify_credentials()
 			return clientApi
 		
 		except tweepy.TweepError:
 			print ("Unable to authenticate with Twitter.\n Program is terminating.\n\n")
 			exit(1)
+
+
 
 ####################################################################
 ##
@@ -92,7 +96,38 @@ def authenticate():
 ##    terminates.
 ##
 ####################################################################
-#def findUser(api):
+def findUser(api):
+
+	while 1 == 1:
+		#ask the user for a Twitter username
+		userName = input("Please enter a Twitter handle (enter 'exit' to quit): ")
+
+		#check the handle for proper syntax
+		index = userName.find('@')
+
+		
+		#if this is exit then end program
+		if userName == 'exit':
+			print('Bye!')
+			exit(1)
+
+		#if the first character is not @ then this is a handle 	
+		elif index != 0:
+			print("Not a valid Twitter handle.")
+
+		#if this is a handle
+		else:
+			try:
+				user = api.get_user(userName)
+				print("\n")
+				print("Found user: " + user.name)
+				break
+
+			except:
+				print("Not a valid Twitter handle.")
+					
+
+	return userName
 
 ###################################################################
 ##
@@ -112,7 +147,17 @@ def authenticate():
 ##   Error messages are printed to the console
 ##
 ####################################################################
-#def getTweets(api, userName):
+def getTweets(api, userName):
+
+	#get all the user tweets
+	tweets = []
+	print("Fetching Tweets...")
+	for page in tweepy.Cursor(api.user_timeline, screen_name=userName).pages():
+		tweets = tweets + page
+
+	print("Found: " + str(len(tweets)) + " Tweets")
+	return tweets
+
 
 
 ###################################################################
@@ -134,11 +179,16 @@ def authenticate():
 ##   Error messages are printed to the console
 ##
 ####################################################################
-#def filterTweetsForImages(api, tweets):
+def filterTweetsForImages(api, tweets):
+	imageTweets = []
+	for tweet in tweets:
+		print(len(tweet.entities['media']))
+
+	return imageTweets
 
 ###################################################################
 ##
-## Function filterTweetsForImages
+## Function downloadImages
 ##
 ## Description
 ##   This procedure goes through each tweet and downloads the image
