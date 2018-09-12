@@ -30,7 +30,7 @@
 ##     is terminated.
 ##
 ####################################################################
-def authenticate():
+#def authenticate():
 
 ####################################################################
 ##
@@ -51,7 +51,7 @@ def authenticate():
 ##     the process will terminate. 
 ##
 ####################################################################
-def openVideo(api):
+#def openVideo(api):
 
 ####################################################################
 ##
@@ -72,7 +72,7 @@ def openVideo(api):
 ##   If the annotation was unsuccessful the process will terminate
 ##
 ####################################################################
-def annotate(api, video):
+#def annotate(api, video):
 
 ####################################################################
 ##
@@ -93,4 +93,4 @@ def annotate(api, video):
 ##   Error messages are printed to the console
 ##
 ####################################################################
-def printResults(api, results):
+#def printResults(api, results):
