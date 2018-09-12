@@ -1,7 +1,7 @@
 ####################################################################
 ##
 ##	Authors:		Peter Zorzonello
-##	Last Update:	9/9/2018
+##	Last Update:	9/12/2018
 ##  Class:          EC601 - A1
 ##  File_Name:		Main.py
 ##
@@ -42,7 +42,7 @@ def main():
     twitterClient = Twitter_API_Helper.authenticate()
     user = Twitter_API_Helper.findUser(twitterClient)
     tweets = Twitter_API_Helper.getTweets(twitterClient, user)
-    imageTweets = Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets)
+    Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets, user)
 
     print("\nEnding API Project\n\n")
 
