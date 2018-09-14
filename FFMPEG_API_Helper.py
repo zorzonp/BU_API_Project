@@ -41,8 +41,7 @@ def mergeImages(path):
 
 	#runs the ffmpeg
 	try:
-		print(path)
-		os.system("ffmpeg -pattern_type glob -framerate 0.1 -i '"+path+" *.jpg'  out_video.m4v")
+		os.system("ffmpeg -pattern_type glob -framerate 0.1 -i '"+path+"*.jpg'  "+path+"out_video.m4v")
 	except:
 		print("Could not generate video from images. Process needs to exit.")
 		exit(1)
