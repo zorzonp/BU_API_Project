@@ -1,7 +1,7 @@
 ####################################################################
 ##
 ##	Authors:		Peter Zorzonello
-##	Last Update:	9/9/2018
+##	Last Update:	9/14/2018
 ##  Class:          EC601 - A1
 ##  File_Name:		FFMPEG_API_Helper.py
 ##
@@ -11,7 +11,8 @@
 ####################################################################
 
 #import required libraries
-
+import os
+import ffmpy
 
 ####################################################################
 ##
@@ -23,16 +24,26 @@
 ##    location as the images.
 ## 
 ## Inputs
-##   None
+##   path: The path to the image directory, where the video lives
 ##
 ## Outputs
-##   status: An integer. 1 if successful, 0 if unsuccessful
+##   None
 ##
 ## Exception Handling
 ##   Error messages are printed to the console
 ##
 ####################################################################
-def mergeImages():
-	status = 0
-	return status
+def mergeImages(path):
+
+
+	#if the video exists, remove it. If not then it could error out.
+	os.system("rm "+path+"out_video.m4v")
+
+	#runs the ffmpeg
+	try:
+		print(path)
+		os.system("ffmpeg -pattern_type glob -framerate 0.1 -i '"+path+" *.jpg'  out_video.m4v")
+	except:
+		print("Could not generate video from images. Process needs to exit.")
+		exit(1)
 

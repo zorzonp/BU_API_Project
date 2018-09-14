@@ -39,10 +39,12 @@ def main():
 	#TODO: Call the library functions 
     print("\n\nStarting API Project")
 
-    twitterClient = Twitter_API_Helper.authenticate()
-    user = Twitter_API_Helper.findUser(twitterClient)
-    tweets = Twitter_API_Helper.getTweets(twitterClient, user)
-    Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets, user)
+    #twitterClient = Twitter_API_Helper.authenticate()
+    #user = Twitter_API_Helper.findUser(twitterClient)
+    #tweets = Twitter_API_Helper.getTweets(twitterClient, user)
+    #Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets, user)
+    path = './img/tmp/'
+    FFMPEG_API_Helper.mergeImages(path)
 
     print("\nEnding API Project\n\n")
 
