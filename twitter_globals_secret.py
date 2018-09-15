@@ -1,10 +1,10 @@
 ####################################################################
 ##
-##	Authors:		Peter Zorzonello
+##	Authors:		  Peter Zorzonello
 ##	Last Update:	9/8/2018
 ##
-##	Description:	Holds the Keys localy so no one on GitHub can 
-##                  see my keys
+##	Description:	
+##    Holds the Keys localy so no one on GitHub can see my keys
 ##
 ####################################################################
 
