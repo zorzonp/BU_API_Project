@@ -1,12 +1,12 @@
 ####################################################################
 ##
-##	Authors:		Peter Zorzonello
-##	Last Update:	9/15/2018
-##  Class:          EC601 - A1
-##  File_Name:		FFMPEG_API_Helper.py
+##  Authors:	  Peter Zorzonello
+##  Last Update:  9/15/2018
+##  Class:        EC601 - A1
+##  File_Name:	  FFMPEG_API_Helper.py
 ##
-##	Description:	This is a library file used to access the FFMPEG
-##                   API
+##  Description:	
+##    This is a library file used to access the FFMPEG API
 ##
 ####################################################################
 
