@@ -1,12 +1,13 @@
 ####################################################################
 ##
-##	Authors:		Peter Zorzonello
-##	Last Update:	9/12/2018
-##  Class:          EC601 - A1
+##  Authors:		Peter Zorzonello
+##  Last Update:	9/12/2018
+##  Class:              EC601 - A1
 ##  File_Name:		Twitter_API_Helper.py
 ##
-##	Description:	This is a library file containing functions that 
-##                    utilize the Tweepy API.
+##  Description:	
+##    This is a library file containing functions that utilize the 
+##      Tweepy API.
 ##
 ####################################################################
 
