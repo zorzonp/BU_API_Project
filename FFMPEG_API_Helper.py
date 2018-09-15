@@ -27,7 +27,7 @@ import ffmpy
 ##   path: The path to the image directory, where the video lives
 ##
 ## Outputs
-##   Integer 0 if successful, 1 if falure
+##   Integer 0 if successful, 1 if failure
 ##
 ## Exception Handling
 ##   Error messages are printed to the console
@@ -57,8 +57,8 @@ def mergeImages(path):
 ## Function reformatImages
 ##
 ## Description
-##   This function takes images stored in a common area convirts them 
-##    to all have the same width and a scaled hight too keep the aspect 
+##   This function takes images stored in a common area converts them 
+##    to all have the same width and a scaled height too keep the aspect 
 ##    ratio.
 ## 
 ## Inputs
