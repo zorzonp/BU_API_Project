@@ -1,13 +1,13 @@
 ####################################################################
 ##
-##	Authors:		Peter Zorzonello
-##	Last Update:	9/12/2018
-##  Class:          EC601 - A1
+##  Authors:		Peter Zorzonello
+##  Last Update:	9/15/2018
+##  Class:              EC601 - A1
 ##  File_Name:		Main.py
 ##
-##	Description:	This is a control file used to test and call 
-##                  the library functions created as part of 
-##                  the first Mini-Project
+##  Description:	
+##    This is a control file used to test and call the library 
+##      functions created as part of the first Mini-Project
 ##
 ####################################################################
 
@@ -37,14 +37,23 @@ import Google_API_Helper
 ####################################################################
 def main():
 	#TODO: Call the library functions 
-    print("\n\nStarting API Project")
+	print("\n\nStarting API Project")
 
-    twitterClient = Twitter_API_Helper.authenticate()
-    user = Twitter_API_Helper.findUser(twitterClient)
-    tweets = Twitter_API_Helper.getTweets(twitterClient, user)
-    Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets, user)
+    #twitterClient = Twitter_API_Helper.authenticate()
+    #user = Twitter_API_Helper.findUser(twitterClient)
+    #tweets = Twitter_API_Helper.getTweets(twitterClient, user)
+    #Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets, user)
+	
+	#this is for testing only.
+	path = './img/tmp/'
+	FFMPEG_API_Helper.reformatImages(path)
+	status = FFMPEG_API_Helper.mergeImages(path)
 
-    print("\nEnding API Project\n\n")
+	if status == 1:
+		print ("FFMPEG could not make video. Terminating")
+		exit(1)
+
+	print("\nEnding API Project\n\n")
 
 
 

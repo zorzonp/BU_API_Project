@@ -1,8 +1,8 @@
 ####################################################################
 ##
-##	Authors:		Peter Zorzonello
+##	Authors:		  Peter Zorzonello
 ##	Last Update:	9/10/2018
-##  Class:          EC601 - A1
+##  Class:        EC601 - A1
 ##  File_Name:		Google_API_Helper.py
 ##
 ##	Description:	This is a library file containing functions that 
