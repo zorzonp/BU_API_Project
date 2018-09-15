@@ -1,13 +1,13 @@
 ####################################################################
 ##
-##	Authors:		Peter Zorzonello
-##	Last Update:	9/15/2018
-##  Class:          EC601 - A1
+##  Authors:		Peter Zorzonello
+##  Last Update:	9/15/2018
+##  Class:              EC601 - A1
 ##  File_Name:		Main.py
 ##
-##	Description:	This is a control file used to test and call 
-##                  the library functions created as part of 
-##                  the first Mini-Project
+##  Description:	
+##    This is a control file used to test and call the library 
+##      functions created as part of the first Mini-Project
 ##
 ####################################################################
 
