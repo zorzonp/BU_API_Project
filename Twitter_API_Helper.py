@@ -1,8 +1,8 @@
 ####################################################################
 ##
 ##  Authors:		Peter Zorzonello
-##  Last Update:	9/12/2018
-##  Class:              EC601 - A1
+##  Last Update:	9/15/2018
+##  Class:			EC601 - A1
 ##  File_Name:		Twitter_API_Helper.py
 ##
 ##  Description:	
@@ -176,7 +176,7 @@ def getTweets(api, userName):
 ##   userName: the twitter handle of the user
 ##
 ## Outputs
-##   None
+##   path: the path to the images folder
 ##
 ## Exception Handling
 ##   Error messages are printed to the console
@@ -214,3 +214,5 @@ def filterTweetsForImages(api, tweets, userName):
 
 	print("\nDownloaded " + str(counter) + " tweets with images.")
 
+	path = path + "/"
+	return path
