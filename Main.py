@@ -38,7 +38,7 @@ jsonPath = '/Users/peterzorzonello/Downloads/My First Project-26a5afb62355.json'
 ##
 ####################################################################
 def main():
-	#TODO: Call the library functions 
+	
 	print("\n\nStarting API Project")
 
 	#authenticate with Twitter
