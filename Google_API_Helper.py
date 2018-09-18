@@ -55,15 +55,6 @@ def authenticate(jsonPath):
 		print("Google.com is live.")
 		#sets the environmet variable needed for the Google credientials
 		os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = jsonPath
-
-		try:
-			#attempt to test the credientials
-			print("try creds")
-			tmpVarTesting = videointelligence.VideoIntelligenceServiceClient()
-		except:
-			print("Could not authenticate with Google using provided credientials.")
-			print("Process must terminate.")
-			exit(1)
 	
 
 ####################################################################

@@ -42,34 +42,45 @@ def main():
 	print("\n\nStarting API Project")
 
 	#authenticate with Twitter
-	#twitterClient = Twitter_API_Helper.authenticate()
+	twitterClient = Twitter_API_Helper.authenticate()
 	
 	#find a user
-	#user = Twitter_API_Helper.findUser(twitterClient)
+	user = Twitter_API_Helper.findUser(twitterClient)
 
 	#get all their tweets
-	#tweets = Twitter_API_Helper.getTweets(twitterClient, user)
+	tweets = Twitter_API_Helper.getTweets(twitterClient, user)
 
 	#filter tweets for images and download the images to path
-	#path = Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets, user)
+	path = Twitter_API_Helper.filterTweetsForImages(twitterClient, tweets, user)
 	
 	#reform all images in path to be the same size
-	#FFMPEG_API_Helper.reformatImages(path)
+	FFMPEG_API_Helper.reformatImages(path)
 
 	#make the images into a video, if falue status will be 1
-	#status = FFMPEG_API_Helper.mergeImages(path)
+	status = FFMPEG_API_Helper.mergeImages(path)
 
-	#if status == 1:
-		#print ("FFMPEG could not make video. Terminating")
-		#exit(1)
-
-	#for testing
-	path = './img/tmp/'
-
+	if status == 1:
+		print ("FFMPEG could not make video. Annotateing images instead.")
+		#authenticate with Google
+		Google_API_Helper.authenticate(jsonPath)
+		try:
+			Google_API_Helper.annotateImages(path)
+		except:
+			print("Could not annotate images. Google may not have been able to authenticate your credentials")
+	
+	#authenticate with Google
 	Google_API_Helper.authenticate(jsonPath)
-	video = Google_API_Helper.openVideo(path)
-	results = Google_API_Helper.annotate(video)
-	Google_API_Helper.printResults(path, results)
+
+	try:
+		#annotate video
+		video = Google_API_Helper.openVideo(path)
+		results = Google_API_Helper.annotate(video)
+
+		#print results
+		Google_API_Helper.printResults(path, results)
+	except:
+		print("Could not annotate video. Google may not have been able to authenticate your credentials")
+	
 	print("\nEnding API Project\n\n")
 
 
