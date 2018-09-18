@@ -1,7 +1,7 @@
 ####################################################################
 ##
 ##  Authors:		Peter Zorzonello
-##  Last Update:	9/15/2018
+##  Last Update:	9/16/2018
 ##  Class:			EC601 - A1
 ##  File_Name:		Main.py
 ##
@@ -16,6 +16,8 @@ import Twitter_API_Helper
 import FFMPEG_API_Helper
 import Google_API_Helper
 
+#global path for JSON credentials
+jsonPath = '/Users/peterzorzonello/Downloads/My First Project-26a5afb62355.json'
 
 ####################################################################
 ##
@@ -58,9 +60,27 @@ def main():
 	status = FFMPEG_API_Helper.mergeImages(path)
 
 	if status == 1:
-		print ("FFMPEG could not make video. Terminating")
-		exit(1)
+		print ("FFMPEG could not make video. Annotateing images instead.")
+		#authenticate with Google
+		Google_API_Helper.authenticate(jsonPath)
+		try:
+			Google_API_Helper.annotateImages(path)
+		except:
+			print("Could not annotate images. Google may not have been able to authenticate your credentials")
+	
+	#authenticate with Google
+	Google_API_Helper.authenticate(jsonPath)
 
+	try:
+		#annotate video
+		video = Google_API_Helper.openVideo(path)
+		results = Google_API_Helper.annotate(video)
+
+		#print results
+		Google_API_Helper.printResults(path, results)
+	except:
+		print("Could not annotate video. Google may not have been able to authenticate your credentials")
+	
 	print("\nEnding API Project\n\n")
 
 
